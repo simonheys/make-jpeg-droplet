@@ -23,8 +23,7 @@ on process(these_items)
 	repeat with i from 1 to the count of these_items
 		set this_item to (item i of these_items)
 		set the item_info to info for this_item
-		if (alias of the item_info is false) and �
-			(the name extension of the item_info is in the extension_list) then
+		if (alias of the item_info is false) and (the name extension of the item_info is in the extension_list) then
 			process_item(this_item)
 		end if
 	end repeat
@@ -41,8 +40,7 @@ on process_folder(this_folder)
 	repeat with i from 1 to the count of these_items
 		set this_item to alias ((this_folder as text) & (item i of these_items))
 		set the item_info to info for this_item
-		if (alias of the item_info is false) and �
-			(the name extension of the item_info is in the extension_list) then
+		if (alias of the item_info is false) and (the name extension of the item_info is in the extension_list) then
 			process_item(this_item)
 		end if
 	end repeat
@@ -80,8 +78,7 @@ end process_item
 
 try
 	tell application "Finder"
-		set the source_folder to choose folder with prompt �
-			"Pick a folder to process:"
+		set the source_folder to choose folder with prompt "Pick a folder to process:"
 	end tell
 	process_folder(source_folder)
 on error error_message
